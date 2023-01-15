@@ -50,21 +50,21 @@ def get_tweets_for_model(cleanTokens):
 
 
 def getSentimentAnalyzer():
+
     stop_words = stopwords.words('english')
-   
-
-    try:
-        _create_unverified_https_context = ssl._create_unverified_context
-    except AttributeError:
-        pass
-    else:
-        ssl._create_default_https_context = _create_unverified_https_context
-
-    # nltk.download()
-    stop_words = nltk.download('stopwords')
-    twitter_samples = nltk.download('twitter_samples')
     posTokens = twitter_samples.tokenized('positive_tweets.json')
     negTokens = twitter_samples.tokenized('negative_tweets.json')
+
+    #nltk.download("wordnet", "/Users/rob/nltk_data")
+
+    # try:
+    #     _create_unverified_https_context = ssl._create_unverified_context
+    # except AttributeError:
+    #     pass
+    # else:
+    #     ssl._create_default_https_context = _create_unverified_https_context
+
+    # nltk.download("all")
 
     posCleanedTokens = []
     negCleanedTokens = []
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     consumer.subscribe(['CS6350_Q1'])
     analyzer = getSentimentAnalyzer()
     count = 0
-    es = Elasticsearch("https://elastic:elastic@localhost:9200",
+    es = Elasticsearch("https://elastic:e-KXNjo5iMPR*nNquLcg@localhost:9200",
                        ca_certs='False',
                        verify_certs=False)
     for message in consumer:
