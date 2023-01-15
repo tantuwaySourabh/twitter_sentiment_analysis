@@ -50,7 +50,7 @@ def get_tweets_for_model(cleanTokens):
 
 
 def getSentimentAnalyzer():
-    #stop_words = stopwords.words('english')
+    stop_words = stopwords.words('english')
    
 
     try:
